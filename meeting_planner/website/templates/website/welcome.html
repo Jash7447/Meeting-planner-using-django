@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome {% endblock %}
+{% block content %}
+    <h1>Welcome to the Meeting Planner!</h1>
+    <p>
+        An application that will help you plan your meeting!
+    </p>
+
+
+    
+    <h2>Meetings:</h2>
+    <ul>
+        {% for meetings in meetings %}
+            <li>
+                <a href="{% url 'detail' meetings.id %}">
+                    {{ meetings.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    To view the list of the rooms <a href="{% url 'rooms' %}">click here</a>
+    <br>
+    <br>
+    To add a new meeting <a href="{% url 'new' %}">click here</a>
+
+{% endblock %}
